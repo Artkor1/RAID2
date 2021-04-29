@@ -1,2 +1,2 @@
-# RAID3
-Tablica dysków nadmiarowych RAID3
+# RAID2
+Tablica dysków nadmiarowych RAID2
