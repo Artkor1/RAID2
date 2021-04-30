@@ -26,8 +26,10 @@ public class Main extends Application {
 		raid.generateECC();
 		System.out.println(raid.toString());
 		
-		//raid.errorInDisks();
-		raid.errorInHammingDisks();
+		raid.errorInDisks();
+		//raid.errorInHammingDisks();
+		System.out.println(raid.toString());
+		raid.fixBits();
 		System.out.println(raid.toString());
 		
 		

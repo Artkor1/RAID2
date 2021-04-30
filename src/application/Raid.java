@@ -1,5 +1,6 @@
 package application;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Raid {
@@ -20,9 +21,9 @@ public class Raid {
 	public void fillDisks()
 	{
 		Random random = new Random();
-		for(int i=0; i<disk_number;i++)
+		for(int i=0; i<disk_size;i++)
 		{
-			for(int j=0; j<disk_size;j++)
+			for(int j=0; j<disk_number;j++)
 			{
 				disks[i][j]=random.nextInt(2);
 			}
@@ -41,12 +42,12 @@ public class Raid {
 		}
 	}
 	
-	//hamming0 = 0,1,3
-	//hamming1 = 0,2,3
-	//hamming2 = 1,2,3
 	public int parity(int row, int column)
 	{
 		int result;
+		//h0 - is responsible for d0, d1, d3
+		//h1 - is responsible for d0, d2, d3
+		//h2 - is responsible for d1, d2, d3
 		if(column==0)
 		{
 			result=(disks[row][0]+disks[row][1]+disks[row][3])%2;
@@ -72,15 +73,8 @@ public class Raid {
 		int column = random.nextInt(disk_number);
 		message+="Error in disk: " + column + " at position: " + row;
 		
-		//flip bit
-		if(disks[row][column]==1)
-		{
-			disks[row][column] = 0;
-		}
-		else
-		{
-			disks[row][column] = 1;
-		}
+		//flip the bit
+		changeBit(row, column, false);
 		
 		message+="\nChanged bit to: " + disks[row][column] + "\n";
 		System.out.println(message);
@@ -96,29 +90,117 @@ public class Raid {
 		int column = random.nextInt(disk_number-1);
 		message+="Error in hamming disk: " + column + " at position: " + row;
 		
-		//flip bit
-		if(hamming_disks[row][column]==1)
-		{
-			hamming_disks[row][column] = 0;
-		}
-		else
-		{
-			hamming_disks[row][column] = 1;
-		}
+		//flip the bit
+		changeBit(row,column,true);
 		
 		message+="\nChanged bit to: " + hamming_disks[row][column] + "\n";
 		System.out.println(message);
 	}
 	
+	public void changeBit(int row, int column, boolean disk) //disk: false-main disk,  true-hamming disk
+	{
+		if(disk)
+		{
+			if(hamming_disks[row][column]==1)
+			{
+				hamming_disks[row][column] = 0;
+			}
+			else
+			{
+				hamming_disks[row][column] = 1;
+			}
+		}
+		else
+		{
+			if(disks[row][column]==1)
+			{
+				disks[row][column] = 0;
+			}
+			else
+			{
+				disks[row][column] = 1;
+			}
+		}
+	}
 	
 	
-	//bit 1 - zmiana e1, e2      bez zmian- e3
-	//bit 2 - zmiana e1, e3      bez zmian- e2
-	//bit 3 - zmiana e2, e3      bez zmian- e1
-	//bit 4 - zmiana e1, e2, e3
 	public void fixBits()
 	{
+		String message="";
+		//create new hamming codes
+		for(int i=0; i<disk_size; i++)
+		{
+			//this array will be used to mark which positions in hamming disks changed
+			boolean[] changed_hamming = new boolean[disk_number-1];
+			Arrays.fill(changed_hamming, false);
+			for(int j=0; j<disk_number-1; j++)
+			{
+				int new_hamming=parity(i,j);
+				
+				//if new hamming code is different from the original, correct one, we mark the change
+				if(new_hamming!=hamming_disks[i][j])
+				{
+					changed_hamming[j]=true;
+				}
+			}
+			
+			//error in disk
+			//d0   changed h0, h1      not changed h2 
+			//d1   changed h0, h2      not changed h1
+			//d2   changed h1, h2      not changed h0
+			//d3   changed h0, h1, h2
+			
+			//error in hamming disk
+			//h0   changed h0		   not changed h1,h2
+			//h1   changed h1		   not changed h0,h2
+			//h2   changed h2		   not changed h0,h1
+			
+			//we repair bits accordingly
+			if(changed_hamming[0] && changed_hamming[1] && !changed_hamming[2])
+			{
+				message+=("Repaired error in disk: " + 0 + " at position: " + i + "\n");	
+				changeBit(i,0,false);
+				break;
+			}
+			else if(changed_hamming[0] && !changed_hamming[1] && changed_hamming[2])
+			{
+				message+=("Repaired error in disk: " + 1 + " at position: " + i + "\n");	
+				changeBit(i,1,false);
+				break;
+			}
+			else if(!changed_hamming[0] && changed_hamming[1] && changed_hamming[2])
+			{
+				message+=("Repaired error in disk: " + 2 + " at position: " + i + "\n");		
+				changeBit(i,2,false);
+				break;
+			}
+			else if(changed_hamming[0] && changed_hamming[1] && changed_hamming[2])
+			{
+				message+=("Repaired error in disk: " + 3 + " at position: " + i + "\n");		
+				changeBit(i,3,false);
+				break;
+			}
+			else if(changed_hamming[0] && !changed_hamming[1] && !changed_hamming[2])
+			{
+				message+=("Repaired error in hamming disk: " + 0 + " at position: " + i + "\n");		
+				changeBit(i,0,true);
+				break;
+			}
+			else if(!changed_hamming[0] && changed_hamming[1] && !changed_hamming[2])
+			{
+				message+=("Repaired error in hamming disk: " + 1 + " at position: " + i + "\n");		
+				changeBit(i,1,true);
+				break;
+			}
+			else if(!changed_hamming[0] && !changed_hamming[1] && changed_hamming[2])
+			{
+				message+=("Repaired error in hamming disk: " + 2 + " at position: " + i + "\n");		
+				changeBit(i,2,true);
+				break;
+			}
+		}
 		
+		System.out.println(message);
 	}
 	
 	public String toString()
@@ -134,11 +216,6 @@ public class Raid {
 				result+=disks[j][i];
 			}
 		}
-		
-		/*System.out.println(disks[0][0] +"+"+ disks[1][0]+"+"+disks[2][0] +"+"+ disks[3][0]);
-		System.out.println(disks[0][1] +"+"+ disks[1][1]+"+"+disks[2][1] +"+"+ disks[3][1]);
-		System.out.println(disks[0][2] +"+"+ disks[1][2]+"+"+disks[2][2] +"+"+ disks[3][2]);
-		System.out.println(disks[0][3] +"+"+ disks[1][3]+"+"+disks[2][3] +"+"+ disks[3][3]);*/
 		
 		//hamming disks
 		for(int i=0; i<disk_number-1; i++)
