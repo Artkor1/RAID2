@@ -1,9 +1,13 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.shape.Circle;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,63 +24,65 @@ public class Controller {
     @FXML
     private TextArea calculations;
 
-
     @FXML
-    private Label D01;
+    private Button[] diskButtons;
+    
     @FXML
-    private Label D02;
+    private Button D01;
     @FXML
-    private Label D03;
+    private Button D02;
     @FXML
-    private Label D04;
+    private Button D03;
     @FXML
-    private Label D11;
+    private Button D04;
     @FXML
-    private Label D12;
+    private Button D11;
     @FXML
-    private Label D13;
+    private Button D12;
     @FXML
-    private Label D14;
+    private Button D13;
     @FXML
-    private Label D21;
+    private Button D14;
     @FXML
-    private Label D22;
+    private Button D21;
     @FXML
-    private Label D23;
+    private Button D22;
     @FXML
-    private Label D24;
+    private Button D23;
     @FXML
-    private Label D31;
+    private Button D24;
     @FXML
-    private Label D32;
+    private Button D31;
     @FXML
-    private Label D33;
+    private Button D32;
     @FXML
-    private Label D34;
+    private Button D33;
     @FXML
-    private Label D41;
+    private Button D34;
     @FXML
-    private Label D42;
+    private Button D41;
     @FXML
-    private Label D43;
+    private Button D42;
     @FXML
-    private Label D44;
+    private Button D43;
     @FXML
-    private Label D51;
+    private Button D44;
     @FXML
-    private Label D52;
+    private Button D51;
     @FXML
-    private Label D53;
+    private Button D52;
     @FXML
-    private Label D54;
+    private Button D53;
     @FXML
-    private Label D61;
+    private Button D54;
     @FXML
-    private Label D62;
+    private Button D61;
     @FXML
-    private Label D63;
+    private Button D62;
     @FXML
-    private Label D64;
+    private Button D63;
+    @FXML
+    private Button D64;
 
 
     Raid raid = new Raid();
@@ -85,43 +91,122 @@ public class Controller {
     String str = "";
 
     public void initialize(){
+    	diskButtons = new Button[] {
+    			D01,D02,D03,D04,
+    			D11,D12,D13,D14,
+    			D21,D22,D23,D24,
+    			D31,D32,D33,D34,
+    			D41,D42,D43,D44,
+    			D51,D52,D53,D54,
+    			D61,D62,D63,D64
+    			};
     }
+    
+    public void refreshColor() {
+    	
+    	for(int i=0; i<4; i++)
+    	{
+    		if(!diskButtons[i].getText().equals(raid.getDiskTable(i, 0)))
+    		{
+    			changeColor(i);
+    			diskButtons[i].setText(raid.getDiskTable(i, 0));
+    		}
+    		
+    		if(!diskButtons[i+4].getText().equals(raid.getDiskTable(i, 1)))
+    		{
+    			changeColor(i+4);
+    			diskButtons[i+4].setText(raid.getDiskTable(i, 1));
+    		}
+    		
+    		if(!diskButtons[i+8].getText().equals(raid.getDiskTable(i, 2)))
+    		{
+    			changeColor(i+8);
+    			diskButtons[i+8].setText(raid.getDiskTable(i, 2));
+    		}
+    		
+    		if(!diskButtons[i+12].getText().equals(raid.getHammingDisks(i, 0)))
+    		{
+    			changeColor(i+12);
+    			diskButtons[i+12].setText(raid.getHammingDisks(i, 0));
+    		}
+    		
+    		if(!diskButtons[i+16].getText().equals(raid.getDiskTable(i, 3)))
+    		{
+    			changeColor(i+16);
+    			diskButtons[i+16].setText(raid.getDiskTable(i, 3));
+    		}
+    		
+    		if(!diskButtons[i+20].getText().equals(raid.getHammingDisks(i, 1)))
+    		{
+    			changeColor(i+20);
+    			diskButtons[i+20].setText(raid.getHammingDisks(i, 1));
+    		}
+    		
+    		if(!diskButtons[i+24].getText().equals(raid.getHammingDisks(i, 2)))
+    		{
+    			changeColor(i+24);
+    			diskButtons[i+24].setText(raid.getHammingDisks(i, 2));
+    		}
 
+    	}
+    }
+    
+    public void changeColor(int i)
+    {
+    	if(diskButtons[i].getStyleClass().remove("red")) 
+    	{
+			diskButtons[i].setStyle("-fx-background-color: lightgreen;");
+		    diskButtons[i].getStyleClass().add("green");
+		} 
+    	else 
+    	{
+			diskButtons[i].setStyle("-fx-background-color: indianred;");
+			diskButtons[i].getStyleClass().remove("green");
+			diskButtons[i].getStyleClass().add("red");
+		}
+    }
+    
+    public void resetColorTags()
+    {
+    	for(int i=0; i<28; i++)
+    	{
+    		diskButtons[i].getStyleClass().remove("red");
+    		diskButtons[i].getStyleClass().remove("green");
+    	}
+    }
+    
+    		
     public void refresh(){
-        D01.setText(raid.getDiskTable(0,0));
-        D02.setText(raid.getDiskTable(1,0));
-        D03.setText(raid.getDiskTable(2,0));
-        D04.setText(raid.getDiskTable(3,0));
-
-        D11.setText(raid.getDiskTable(0,1));
-        D12.setText(raid.getDiskTable(1,1));
-        D13.setText(raid.getDiskTable(2,1));
-        D14.setText(raid.getDiskTable(3,1));
-
-        D21.setText(raid.getDiskTable(0,2));
-        D22.setText(raid.getDiskTable(1,2));
-        D23.setText(raid.getDiskTable(2,2));
-        D24.setText(raid.getDiskTable(3,2));
-
-        D31.setText(raid.getHammingDisks(0,0));
-        D32.setText(raid.getHammingDisks(1,0));
-        D33.setText(raid.getHammingDisks(2,0));
-        D34.setText(raid.getHammingDisks(3,0));
-
-        D41.setText(raid.getDiskTable(0,3));
-        D42.setText(raid.getDiskTable(1,3));
-        D43.setText(raid.getDiskTable(2,3));
-        D44.setText(raid.getDiskTable(3,3));
-
-        D51.setText(raid.getHammingDisks(0,1));
-        D52.setText(raid.getHammingDisks(1,1));
-        D53.setText(raid.getHammingDisks(2,1));
-        D54.setText(raid.getHammingDisks(3,1));
-
-        D61.setText(raid.getHammingDisks(0,2));
-        D62.setText(raid.getHammingDisks(1,2));
-        D63.setText(raid.getHammingDisks(2,2));
-        D64.setText(raid.getHammingDisks(3,2));
+    	
+    	for(int i=0; i<4; i++)
+    	{
+    		diskButtons[i].setText(raid.getDiskTable(i, 0));
+    		diskButtons[i+4].setText(raid.getDiskTable(i, 1));
+    		diskButtons[i+8].setText(raid.getDiskTable(i, 2));
+    		diskButtons[i+12].setText(raid.getHammingDisks(i, 0));
+    		diskButtons[i+16].setText(raid.getDiskTable(i, 3));
+    		diskButtons[i+20].setText(raid.getHammingDisks(i, 1));
+    		diskButtons[i+24].setText(raid.getHammingDisks(i, 2));
+    		
+    		diskButtons[i].setStyle(null);
+    		diskButtons[i+4].setStyle(null);
+    		diskButtons[i+8].setStyle(null);
+    		diskButtons[i+12].setStyle(null);
+    		diskButtons[i+16].setStyle(null);
+    		diskButtons[i+20].setStyle(null);
+    		diskButtons[i+24].setStyle(null); 		
+    	}
+    }
+    
+    @FXML
+    public void changeSpecificBit(ActionEvent event)
+    {
+    	Node node = (Node) event.getSource();
+    	String bitText = (String) node.getUserData();
+    	int bit = Integer.parseInt(bitText);
+    	addText(raid.errorSpecific(bit));
+        addText(raid.toString() + "\n");
+    	refreshColor();
     }
 
     @FXML
@@ -129,7 +214,7 @@ public class Controller {
         raid.fillDisks();
         raid.generateECC();
         addText(raid.toString() + "\n");
-
+        resetColorTags();
         refresh();
     }
 
@@ -156,6 +241,7 @@ public class Controller {
         {
             addText("Error in read data from file");
         }
+        resetColorTags();
         refresh();
     }
 
@@ -163,21 +249,21 @@ public class Controller {
     public void mainDiskError(){
         addText(raid.errorInDisks());
         addText(raid.toString() + "\n");
-        refresh();
+        refreshColor();
     }
 
     @FXML
     public void hammingDiskError(){
         addText(raid.errorInHammingDisks());
         addText(raid.toString() + "\n");
-        refresh();
+        refreshColor();
     }
 
     @FXML
     public void correctErrors(){
         addText(raid.fixBits());
         addText(raid.toString() + "\n");
-        refresh();
+        refreshColor();
     }
 
     @FXML

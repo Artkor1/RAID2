@@ -62,6 +62,63 @@ public class Raid {
         }
         return result;
     }
+    public String errorSpecific(int i)
+    {
+    	String message="";
+
+    	boolean hamming=false; // normal or hamming disk
+    	int column;
+    	int row=i/7;
+    	if(i%7==0)			//disk 0
+    	{
+    		column=0;
+    	}
+    	else if(i%7==1)		//disk 1
+    	{
+    		column=1;
+    	}
+    	else if(i%7==2)		//disk 2
+    	{
+    		column=2;
+    	}
+    	else if(i%7==3)		//hamming disk 0
+    	{
+    		column=0;
+    		hamming=true;
+    	}
+    	else if(i%7==4)		//disk 3
+    	{
+    		column=3;
+    	}
+    	else if(i%7==5)		//hamming disk 1
+    	{
+    		column=1;
+    		hamming=true;
+    	}
+    	else				//hamming disk 2
+    	{
+    		column=2;
+    		hamming=true;
+    	}
+    	
+    	
+    	if(hamming)
+    	{
+        	message+="Error in hamming disk: " + column + " at position: " + row;
+        	//flip the bit
+            changeBit(row, column, true);
+            message+="\nChanged bit to: " + hamming_disks[row][column] + "\n";
+    	}
+    	else
+    	{
+        	message+="Error in disk: " + column + " at position: " + row;
+        	//flip the bit
+            changeBit(row, column, false);
+            message+="\nChanged bit to: " + disks[row][column] + "\n";
+    	}
+    	
+    	return message;
+    }
 
     public String errorInDisks()
     {

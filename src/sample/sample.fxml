@@ -117,7 +117,7 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="Disk3" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Label text="Disk3 (H0)" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -127,156 +127,156 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="Disk5" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Label text="Disk5 (H1)" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="Disk6" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Label text="Disk6 (H2)" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="D01" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <Button fx:id="D01" text="0" onAction="#changeSpecificBit" userData="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D11" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D11" text="0" onAction="#changeSpecificBit" userData="1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D21" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D21" text="0" onAction="#changeSpecificBit" userData="2" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D31" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D31" text="0" onAction="#changeSpecificBit" userData="3" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D41" text="0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D41" text="0" onAction="#changeSpecificBit" userData="4" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D51" text="0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D51" text="0" onAction="#changeSpecificBit" userData="5" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D61" text="0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D61" text="0" onAction="#changeSpecificBit" userData="6" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D02" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D02" text="0" onAction="#changeSpecificBit" userData="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D12" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D12" text="0" onAction="#changeSpecificBit" userData="8" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D22" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D22" text="0" onAction="#changeSpecificBit" userData="9" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D32" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D32" text="0" onAction="#changeSpecificBit" userData="10" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D42" text="0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D42" text="0" onAction="#changeSpecificBit" userData="11" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D52" text="0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D52" text="0" onAction="#changeSpecificBit" userData="12" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D62" text="0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D62" text="0" onAction="#changeSpecificBit" userData="13" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D03" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D03" text="0" onAction="#changeSpecificBit" userData="14" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D13" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D13" text="0" onAction="#changeSpecificBit" userData="15" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D23" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D23" text="0" onAction="#changeSpecificBit" userData="16" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D33" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D33" text="0" onAction="#changeSpecificBit" userData="17" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D43" text="0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D43" text="0" onAction="#changeSpecificBit" userData="18" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D53" text="0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D53" text="0" onAction="#changeSpecificBit" userData="19" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D63" text="0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D63" text="0" onAction="#changeSpecificBit" userData="20" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D04" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D04" text="0" onAction="#changeSpecificBit" userData="21" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D14" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D14" text="0" onAction="#changeSpecificBit" userData="22" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D24" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D24" text="0" onAction="#changeSpecificBit" userData="23" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D34" text="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D34" text="0" onAction="#changeSpecificBit" userData="24" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D44" text="0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D44" text="0" onAction="#changeSpecificBit" userData="25" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D54" text="0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D54" text="0" onAction="#changeSpecificBit" userData="26" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
-                        <Label fx:id="D64" text="0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                        </Button>
+                        <Button fx:id="D64" text="0" onAction="#changeSpecificBit" userData="27" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
-                        </Label>
+                        </Button>
                      </children>
                   </GridPane>
                </children>
